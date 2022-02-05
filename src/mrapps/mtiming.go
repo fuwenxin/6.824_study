@@ -7,14 +7,17 @@ package main
 // go build -buildmode=plugin mtiming.go
 //
 
-import "6.824/mr"
-import "strings"
-import "fmt"
-import "os"
-import "syscall"
-import "time"
-import "sort"
-import "io/ioutil"
+import (
+	"fmt"
+	"io/ioutil"
+	"os"
+	"sort"
+	"strings"
+	"syscall"
+	"time"
+
+	"6.824/mr"
+)
 
 func nparallel(phase string) int {
 	// create a file so that other workers will see that
@@ -41,8 +44,11 @@ func nparallel(phase string) int {
 		var xpid int
 		pat := fmt.Sprintf("mr-worker-%s-%%d", phase)
 		n, err := fmt.Sscanf(name, pat, &xpid)
+		// n: 它返回成功解析的项目数。
 		if n == 1 && err == nil {
 			err := syscall.Kill(xpid, 0)
+			// kill -0 pid 不发送任何信号，但是系统会进行错误检查。
+			// 所以经常用来检查一个进程是否存在，存在返回0；不存在返回1
 			if err == nil {
 				// if err == nil, xpid is alive.
 				ret += 1
@@ -57,7 +63,6 @@ func nparallel(phase string) int {
 	if err != nil {
 		panic(err)
 	}
-
 	return ret
 }
 

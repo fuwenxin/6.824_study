@@ -1,0 +1,1411 @@
+*** Starting wc test.
+2022/02/04 20:44:20 rpc.Register: reply type of method "Construct" is not a pointer: "int"
+2022/02/04 20:44:20 rpc.Register: method "Done" has 1 input parameters; needs exactly three
+2022/02/04 20:44:20 rpc.Register: method "FindTimeoutWorker" has 1 input parameters; needs exactly three
+2022/02/04 20:44:20 rpc.Register: method "WatchWorkerAlive" has 1 input parameters; needs exactly three
+Watch all threads!!!
+Current workers are :
+==================
+Watch all threads!!!
+Current workers are :
+==================
+Run Map task : 98722
+ mapTask file : ../pg-being_ernest.txt
+Run Map task : 98720
+ Run Map task : 98721
+ mapTask file : ../pg-dorian_gray.txt
+mapTask file : ../pg-frankenstein.txt
+Watch all threads!!!
+Current workers are :
+98720 931.365905ms
+98721 929.563598ms
+98722 995.584431ms
+==================
+CHECK-MAP 0 success
+map task success :../pg-being_ernest.txt 98722Run Map task : 98722
+ mapTask file : ../pg-grimm.txt
+Watch all threads!!!
+Current workers are :
+98720 1.93241445s
+98721 1.930528324s
+98722 797.506047ms
+==================
+Watch all threads!!!
+Current workers are :
+98722 1.798666765s
+98720 2.933776224s
+98721 2.931896681s
+==================
+Watch all threads!!!
+Current workers are :
+98722 2.800014469s
+98720 3.934974587s
+98721 3.933088013s
+==================
+Watch all threads!!!
+Current workers are :
+98722 3.804462358s
+98720 4.939422563s
+98721 4.9375232s
+==================
+CHECK-MAP 2 success
+map task success :../pg-frankenstein.txt 98721Run Map task : 98721
+ mapTask file : ../pg-huckleberry_finn.txt
+CHECK-MAP 1 success
+map task success :../pg-dorian_gray.txt 98720Run Map task : 98720
+ mapTask file : ../pg-metamorphosis.txt
+Watch all threads!!!
+Current workers are :
+98722 4.805595407s
+98720 512.813059ms
+98721 684.01497ms
+==================
+CHECK-MAP 5 success
+map task success :../pg-metamorphosis.txt 98720Run Map task : 98720
+ mapTask file : ../pg-sherlock_holmes.txt
+CHECK-MAP 3 success
+map task success :../pg-grimm.txt 98722Run Map task : 98722
+ mapTask file : ../pg-tom_sawyer.txt
+Watch all threads!!!
+Current workers are :
+98722 179.632326ms
+98720 440.47469ms
+98721 1.685699832s
+==================
+Watch all threads!!!
+Current workers are :
+98721 2.688728675s
+98722 1.182768389s
+98720 1.443570828s
+==================
+Watch all threads!!!
+Current workers are :
+98722 2.184167309s
+98720 2.445027871s
+98721 3.690243344s
+==================
+Watch all threads!!!
+Current workers are :
+98722 3.184410878s
+98720 3.445224595s
+98721 4.690427771s
+==================
+CHECK-MAP 7 success
+map task success :../pg-tom_sawyer.txt 98722Run Map task : 98722
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+98720 4.446187699s
+98721 5.691395921s
+98722 4.18543268s
+==================
+CHECK-MAP 6 success
+map task success :../pg-sherlock_holmes.txt 98720Run Map task : 98720
+ mapTask file : 
+CHECK-MAP 4 success
+ALL map task is over
+map task success :../pg-huckleberry_finn.txt 98721Run Map task : 98721
+ mapTask file : 
+send task 0
+Run Map task : 98722
+ mapTask file : 
+send task 1
+CHECK-Reduce 0 check start
+CHECK-Reduce 0 success
+Success input into mr-out-0
+send task 2
+Watch all threads!!!
+Current workers are :
+98721 24.404911ms
+98722 177.89005ms
+==================
+Run Map task : 98720
+ mapTask file : 
+send task 3
+Watch all threads!!!
+Current workers are :
+98721 1.026580162s
+98722 1.18005337s
+98720 820.278219ms
+==================
+CHECK-Reduce 1 check start
+CHECK-Reduce 1 success
+Success input into mr-out-1
+send task 4
+CHECK-Reduce 3 check start
+CHECK-Reduce 3 success
+Success input into mr-out-3
+send task 5
+Watch all threads!!!
+Current workers are :
+98721 2.028281803s
+98722 820.193797ms
+98720 134.47418ms
+==================
+Watch all threads!!!
+Current workers are :
+98721 3.037963618s
+98722 1.829077035s
+98720 1.137732343s
+==================
+CHECK-Reduce 2 check start
+CHECK-Reduce 2 success
+Success input into mr-out-2
+send task 6
+CHECK-Reduce 4 check start
+CHECK-Reduce 4 success
+Success input into mr-out-4
+send task 7
+CHECK-Reduce 5 check start
+CHECK-Reduce 5 success
+Success input into mr-out-5
+send task 8
+Watch all threads!!!
+Current workers are :
+98721 737.959723ms
+98722 439.848589ms
+98720 310.536709ms
+==================
+Watch all threads!!!
+Current workers are :
+98721 1.738548104s
+98722 1.440396271s
+98720 1.311085415s
+==================
+Watch all threads!!!
+Current workers are :
+98722 2.441110686s
+98720 2.311804547s
+98721 2.739327119s
+==================
+CHECK-Reduce 7 check start
+CHECK-Reduce 7 success
+Success input into mr-out-7
+send task 9
+Watch all threads!!!
+Current workers are :
+98721 3.739567257s
+98722 557.6999ms
+98720 3.312097023s
+==================
+CHECK-Reduce 8 check start
+CHECK-Reduce 8 success
+Success input into mr-out-8
+CHECK-Reduce 6 check start
+CHECK-Reduce 6 success
+Success input into mr-out-6
+CHECK-Reduce 9 check start
+CHECK-Reduce 9 over
+CHECK-Reduce 9 success
+Success input into mr-out-9
+Worker has gone
+CHECK-Reduce done
+Watch thread over~
+ALL TASK OVER!!!
+Worker has gone
+Worker has gone
+--- wc test: PASS
+*** Starting indexer test.
+2022/02/04 20:44:44 rpc.Register: reply type of method "Construct" is not a pointer: "int"
+2022/02/04 20:44:44 rpc.Register: method "Done" has 1 input parameters; needs exactly three
+2022/02/04 20:44:44 rpc.Register: method "FindTimeoutWorker" has 1 input parameters; needs exactly three
+2022/02/04 20:44:44 rpc.Register: method "WatchWorkerAlive" has 1 input parameters; needs exactly three
+Watch all threads!!!
+Current workers are :
+==================
+Run Map task : 98985
+ Run Map task : 98986
+ mapTask file : ../pg-being_ernest.txt
+Watch all threads!!!
+Current workers are :
+98986 6.946767ms
+98985 281.793µs
+==================
+mapTask file : ../pg-dorian_gray.txt
+CHECK-MAP 0 success
+map task success :../pg-being_ernest.txt 98986Run Map task : 98986
+ mapTask file : ../pg-frankenstein.txt
+CHECK-MAP 1 success
+map task success :../pg-dorian_gray.txt 98985Run Map task : 98985
+ mapTask file : ../pg-grimm.txt
+CHECK-MAP 2 success
+map task success :../pg-frankenstein.txt 98986Run Map task : 98986
+ mapTask file : ../pg-huckleberry_finn.txt
+Watch all threads!!!
+Current workers are :
+98985 493.816684ms
+98986 209.500996ms
+==================
+CHECK-MAP 3 success
+map task success :../pg-grimm.txt 98985Run Map task : 98985
+ mapTask file : ../pg-metamorphosis.txt
+CHECK-MAP 4 success
+map task success :../pg-huckleberry_finn.txt 98986Run Map task : 98986
+ mapTask file : ../pg-sherlock_holmes.txt
+CHECK-MAP 5 success
+map task success :../pg-metamorphosis.txt 98985Run Map task : 98985
+ mapTask file : ../pg-tom_sawyer.txt
+Watch all threads!!!
+Current workers are :
+98985 564.411388ms
+98986 605.808653ms
+==================
+CHECK-MAP 7 success
+map task success :../pg-tom_sawyer.txt 98985Run Map task : 98985
+ mapTask file : 
+CHECK-MAP 6 success
+ALL map task is over
+map task success :../pg-sherlock_holmes.txt 98986Run Map task : 98986
+ mapTask file : 
+send task 0
+CHECK-Reduce 0 check start
+CHECK-Reduce 0 success
+Success input into mr-out-0
+send task 1
+CHECK-Reduce 1 check start
+CHECK-Reduce 1 success
+Success input into mr-out-1
+send task 2
+CHECK-Reduce 2 check start
+CHECK-Reduce 2 success
+Success input into mr-out-2
+send task 3
+CHECK-Reduce 3 check start
+CHECK-Reduce 3 success
+Success input into mr-out-3
+send task 4
+Watch all threads!!!
+Current workers are :
+98986 46.151512ms
+==================
+Run Map task : 98985
+ mapTask file : 
+send task 5
+CHECK-Reduce 4 check start
+CHECK-Reduce 4 success
+Success input into mr-out-4
+send task 6
+CHECK-Reduce 6 check start
+CHECK-Reduce 6 success
+Success input into mr-out-6
+send task 7
+CHECK-Reduce 5 check start
+CHECK-Reduce 5 success
+Success input into mr-out-5
+send task 8
+CHECK-Reduce 7 check start
+CHECK-Reduce 7 success
+Success input into mr-out-7
+send task 9
+CHECK-Reduce 8 check start
+CHECK-Reduce 8 success
+Success input into mr-out-8
+CHECK-Reduce 9 check start
+CHECK-Reduce 9 over
+CHECK-Reduce 9 success
+Success input into mr-out-9
+Worker has gone
+--- indexer test: PASS
+CHECK-Reduce done
+ALL TASK OVER!!!
+Watch thread over~
+Worker has gone
+*** Starting map parallelism test.
+2022/02/04 20:44:50 rpc.Register: reply type of method "Construct" is not a pointer: "int"
+2022/02/04 20:44:50 rpc.Register: method "Done" has 1 input parameters; needs exactly three
+2022/02/04 20:44:50 rpc.Register: method "FindTimeoutWorker" has 1 input parameters; needs exactly three
+2022/02/04 20:44:50 rpc.Register: method "WatchWorkerAlive" has 1 input parameters; needs exactly three
+Watch all threads!!!
+Current workers are :
+==================
+Watch all threads!!!
+Current workers are :
+==================
+Run Map task : 99069
+ Run Map task : 99070
+ mapTask file : ../pg-dorian_gray.txt
+mapTask file : ../pg-being_ernest.txt
+Watch all threads!!!
+Current workers are :
+99069 949.659936ms
+99070 948.495929ms
+==================
+CHECK-MAP 0 success
+map task success :../pg-being_ernest.txt 99069Run Map task : 99069
+ mapTask file : ../pg-frankenstein.txt
+CHECK-MAP 1 success
+map task success :../pg-dorian_gray.txt 99070Run Map task : 99070
+ mapTask file : ../pg-grimm.txt
+Watch all threads!!!
+Current workers are :
+99069 929.82319ms
+99070 919.154275ms
+==================
+CHECK-MAP 2 success
+map task success :../pg-frankenstein.txt 99069Run Map task : 99069
+ mapTask file : ../pg-huckleberry_finn.txt
+CHECK-MAP 3 success
+map task success :../pg-grimm.txt 99070Run Map task : 99070
+ mapTask file : ../pg-metamorphosis.txt
+Watch all threads!!!
+Current workers are :
+99069 893.197802ms
+99070 882.902518ms
+==================
+CHECK-MAP 5 success
+map task success :../pg-metamorphosis.txt 99070Run Map task : 99070
+ mapTask file : ../pg-sherlock_holmes.txt
+CHECK-MAP 4 success
+map task success :../pg-huckleberry_finn.txt 99069Run Map task : 99069
+ mapTask file : ../pg-tom_sawyer.txt
+Watch all threads!!!
+Current workers are :
+99070 873.777588ms
+99069 868.463129ms
+==================
+CHECK-MAP 6 success
+map task success :../pg-sherlock_holmes.txt 99070Run Map task : 99070
+ CHECK-MAP 7 success
+ALL map task is over
+mapTask file : 
+map task success :../pg-tom_sawyer.txt 99069Run Map task : 99069
+ mapTask file : 
+send task 2
+CHECK-Reduce 2 check start
+CHECK-Reduce 2 success
+Success input into mr-out-2
+send task 3
+CHECK-Reduce 3 check start
+CHECK-Reduce 3 success
+Success input into mr-out-3
+send task 4
+CHECK-Reduce 4 check start
+CHECK-Reduce 4 success
+Success input into mr-out-4
+send task 5
+CHECK-Reduce 5 check start
+CHECK-Reduce 5 over
+CHECK-Reduce 5 success
+Success input into mr-out-5
+Worker has gone
+--- map parallelism test: PASS
+Watch all threads!!!
+Run Map task : 99070
+ test-mr.sh: line 162: 99046 Killed                  $TIMEOUT ../mrcoordinator ../pg*txt
+unexpected EOF
+call failed!
+Run Map task : 99070
+ 2022/02/04 20:46:09 dialing:dial-http unix /var/tmp/824-mr-1000: read unix @->/var/tmp/824-mr-1000: read: connection reset by peer
+*** Starting reduce parallelism test.
+rm: cannot remove 'mr-mediate': Is a directory
+2022/02/04 20:46:09 rpc.Register: reply type of method "Construct" is not a pointer: "int"
+2022/02/04 20:46:09 rpc.Register: method "Done" has 1 input parameters; needs exactly three
+2022/02/04 20:46:09 rpc.Register: method "FindTimeoutWorker" has 1 input parameters; needs exactly three
+2022/02/04 20:46:09 rpc.Register: method "WatchWorkerAlive" has 1 input parameters; needs exactly three
+Watch all threads!!!
+Current workers are :
+==================
+Watch all threads!!!
+Current workers are :
+==================
+Run Map task : 99538
+ Run Map task : 99539
+ mapTask file : ../pg-being_ernest.txt
+mapTask file : ../pg-dorian_gray.txt
+CHECK-MAP 0 success
+map task success :../pg-being_ernest.txt 99539Run Map task : 99539
+ mapTask file : ../pg-frankenstein.txt
+CHECK-MAP 1 success
+map task success :../pg-dorian_gray.txt 99538Run Map task : 99538
+ mapTask file : ../pg-grimm.txt
+CHECK-MAP 2 success
+map task success :../pg-frankenstein.txt 99539Run Map task : 99539
+ mapTask file : ../pg-huckleberry_finn.txt
+CHECK-MAP 3 success
+map task success :../pg-grimm.txt 99538Run Map task : 99538
+ mapTask file : ../pg-metamorphosis.txt
+CHECK-MAP 5 success
+map task success :../pg-metamorphosis.txt 99538Run Map task : 99538
+ mapTask file : ../pg-sherlock_holmes.txt
+CHECK-MAP 4 success
+map task success :../pg-huckleberry_finn.txt 99539Run Map task : 99539
+ CHECK-MAP 6 success
+mapTask file : ../pg-tom_sawyer.txt
+map task success :../pg-sherlock_holmes.txt 99538Run Map task : 99538
+ mapTask file : 
+CHECK-MAP 7 success
+ALL map task is over
+map task success :../pg-tom_sawyer.txt 99539Run Map task : 99539
+ mapTask file : 
+send task 0
+Watch all threads!!!
+Current workers are :
+99539 749.051392ms
+==================
+Run Map task : 99538
+ mapTask file : 
+send task 1
+CHECK-Reduce 0 check start
+CHECK-Reduce 0 success
+Success input into mr-out-0
+send task 2
+Watch all threads!!!
+Current workers are :
+99539 729.963771ms
+99538 776.353135ms
+==================
+CHECK-Reduce 1 check start
+CHECK-Reduce 1 success
+Success input into mr-out-1
+send task 3
+CHECK-Reduce 2 check start
+CHECK-Reduce 2 success
+Success input into mr-out-2
+send task 4
+Watch all threads!!!
+Current workers are :
+99539 721.617425ms
+99538 766.353845ms
+==================
+Watch all threads!!!
+Current workers are :
+99539 1.722078771s
+99538 1.76679435s
+==================
+CHECK-Reduce 3 check start
+CHECK-Reduce 3 success
+Success input into mr-out-3
+send task 5
+CHECK-Reduce 4 check start
+CHECK-Reduce 4 success
+Success input into mr-out-4
+send task 6
+Watch all threads!!!
+Current workers are :
+99539 711.966117ms
+99538 758.074341ms
+==================
+CHECK-Reduce 5 check start
+CHECK-Reduce 5 success
+Success input into mr-out-5
+send task 9
+CHECK-Reduce 6 check start
+CHECK-Reduce 6 success
+Success input into mr-out-6
+Watch all threads!!!
+Current workers are :
+99539 1.713573649s
+99538 752.547181ms
+==================
+CHECK-Reduce 9 check start
+CHECK-Reduce 9 over
+CHECK-Reduce 9 success
+Success input into mr-out-9
+Worker has gone
+Worker has gone
+--- reduce parallelism test: PASS
+CHECK-Reduce done
+ALL TASK OVER!!!
+Watch thread over~
+*** Starting job count test.
+rm: cannot remove 'mr-mediate': Is a directory
+2022/02/04 20:46:18 rpc.Register: reply type of method "Construct" is not a pointer: "int"
+2022/02/04 20:46:18 rpc.Register: method "Done" has 1 input parameters; needs exactly three
+2022/02/04 20:46:18 rpc.Register: method "FindTimeoutWorker" has 1 input parameters; needs exactly three
+2022/02/04 20:46:18 rpc.Register: method "WatchWorkerAlive" has 1 input parameters; needs exactly three
+Watch all threads!!!
+Current workers are :
+==================
+Watch all threads!!!
+Current workers are :
+==================
+Run Map task : 99714
+ Run Map task : 99713
+ mapTask file : ../pg-being_ernest.txt
+mapTask file : ../pg-dorian_gray.txt
+Watch all threads!!!
+Current workers are :
+99714 978.397827ms
+99713 977.284039ms
+==================
+Watch all threads!!!
+Current workers are :
+99714 1.979617101s
+99713 1.978484404s
+==================
+Watch all threads!!!
+Current workers are :
+99714 2.98043551s
+99713 2.979300968s
+==================
+Watch all threads!!!
+Current workers are :
+99714 3.980815782s
+99713 3.979676649s
+==================
+CHECK-MAP 0 success
+map task success :../pg-being_ernest.txt 99714Run Map task : 99714
+ mapTask file : ../pg-frankenstein.txt
+CHECK-MAP 1 success
+map task success :../pg-dorian_gray.txt 99713Run Map task : 99713
+ mapTask file : ../pg-grimm.txt
+Watch all threads!!!
+Current workers are :
+99713 878.341811ms
+99714 886.646481ms
+==================
+Watch all threads!!!
+Current workers are :
+99714 1.887396575s
+99713 1.879158951s
+==================
+Watch all threads!!!
+Current workers are :
+99713 2.879858173s
+99714 2.88815845s
+==================
+Watch all threads!!!
+Current workers are :
+99714 3.889173035s
+99713 3.880935617s
+==================
+CHECK-MAP 2 success
+map task success :../pg-frankenstein.txt 99714Run Map task : 99714
+ mapTask file : ../pg-huckleberry_finn.txt
+CHECK-MAP 3 success
+map task success :../pg-grimm.txt 99713Run Map task : 99713
+ mapTask file : ../pg-metamorphosis.txt
+Watch all threads!!!
+Current workers are :
+99714 954.011201ms
+99713 944.319985ms
+==================
+Watch all threads!!!
+Current workers are :
+99714 1.954409981s
+99713 1.944705045s
+==================
+Watch all threads!!!
+Current workers are :
+99714 2.955080176s
+99713 2.945375438s
+==================
+CHECK-MAP 4 success
+map task success :../pg-huckleberry_finn.txt 99714Run Map task : 99714
+ mapTask file : ../pg-sherlock_holmes.txt
+CHECK-MAP 5 success
+map task success :../pg-metamorphosis.txt 99713Run Map task : 99713
+ mapTask file : ../pg-tom_sawyer.txt
+Watch all threads!!!
+Current workers are :
+99714 81.448267ms
+99713 69.87228ms
+==================
+Watch all threads!!!
+Current workers are :
+99713 1.071859038s
+99714 1.0837885s
+==================
+Watch all threads!!!
+Current workers are :
+99714 2.084185473s
+99713 2.072357783s
+==================
+CHECK-MAP 7 success
+map task success :../pg-tom_sawyer.txt 99713Run Map task : 99713
+ mapTask file : 
+CHECK-MAP 6 success
+ALL map task is over
+map task success :../pg-sherlock_holmes.txt 99714Run Map task : 99714
+ mapTask file : 
+send task 2
+CHECK-Reduce 2 check start
+CHECK-Reduce 2 over
+CHECK-Reduce 2 success
+Success input into mr-out-2
+Worker has gone
+Run Map task : 99896
+ Run Map task : 99895
+ mapTask file : 
+mapTask file : 
+Worker has gone
+Worker has gone
+--- job count test: PASS
+CHECK-Reduce done
+ALL TASK OVER!!!
+Watch thread over~
+Run Map task : 99713
+ mapTask file : 
+Worker has gone
+rm: cannot remove 'mr-mediate': Is a directory
+*** Starting early exit test.
+2022/02/04 20:46:35 rpc.Register: reply type of method "Construct" is not a pointer: "int"
+2022/02/04 20:46:35 rpc.Register: method "Done" has 1 input parameters; needs exactly three
+2022/02/04 20:46:35 rpc.Register: method "FindTimeoutWorker" has 1 input parameters; needs exactly three
+2022/02/04 20:46:35 rpc.Register: method "WatchWorkerAlive" has 1 input parameters; needs exactly three
+Watch all threads!!!
+Current workers are :
+==================
+Watch all threads!!!
+Current workers are :
+==================
+Run Map task : 99950
+ Run Map task : 99951
+ mapTask file : ../pg-being_ernest.txt
+Run Map task : 99949
+ mapTask file : ../pg-dorian_gray.txt
+CHECK-MAP 0 success
+map task success :../pg-being_ernest.txt 99950Run Map task : 99950
+ mapTask file : ../pg-frankenstein.txt
+mapTask file : ../pg-grimm.txt
+CHECK-MAP 1 success
+map task success :../pg-dorian_gray.txt 99951Run Map task : 99951
+ mapTask file : ../pg-huckleberry_finn.txt
+CHECK-MAP 4 success
+map task success :../pg-huckleberry_finn.txt 99951Run Map task : 99951
+ mapTask file : ../pg-metamorphosis.txt
+CHECK-MAP 2 success
+map task success :../pg-frankenstein.txt 99949Run Map task : 99949
+ mapTask file : ../pg-sherlock_holmes.txt
+CHECK-MAP 5 success
+map task success :../pg-metamorphosis.txt 99951Run Map task : 99951
+ mapTask file : ../pg-tom_sawyer.txt
+CHECK-MAP 3 success
+map task success :../pg-grimm.txt 99950Run Map task : 99950
+ mapTask file : 
+CHECK-MAP 6 success
+map task success :../pg-sherlock_holmes.txt 99949Run Map task : 99949
+ mapTask file : 
+CHECK-MAP 7 success
+ALL map task is over
+map task success :../pg-tom_sawyer.txt 99951Run Map task : 99951
+ mapTask file : 
+send task 2
+Watch all threads!!!
+Current workers are :
+99951 778.446973ms
+==================
+Run Map task : 99950
+ mapTask file : 
+send task 3
+CHECK-Reduce 3 check start
+CHECK-Reduce 3 success
+Success input into mr-out-3
+send task 5
+CHECK-Reduce 5 check start
+CHECK-Reduce 5 success
+Success input into mr-out-5
+send task 6
+Run Map task : 99949
+ mapTask file : 
+send task 8
+CHECK-Reduce 8 check start
+CHECK-Reduce 8 success
+Success input into mr-out-8
+send task 9
+CHECK-Reduce 9 check start
+CHECK-Reduce 9 success
+Success input into mr-out-9
+Watch all threads!!!
+Current workers are :
+99951 1.779272753s
+99950 805.06552ms
+99949 783.261661ms
+==================
+Watch all threads!!!
+Current workers are :
+99950 1.805696318s
+99949 1.783841039s
+99951 2.780031976s
+==================
+CHECK-Reduce 2 check start
+CHECK-Reduce 2 success
+Success input into mr-out-2
+Watch all threads!!!
+Current workers are :
+99950 2.806218145s
+99949 2.784388469s
+99951 3.780600119s
+==================
+CHECK-Reduce 6 check start
+CHECK-Reduce 6 over
+CHECK-Reduce 6 success
+Success input into mr-out-6
+Worker has gone
+Worker has gone
+Worker has gone
+CHECK-Reduce done
+ALL TASK OVER!!!
+Watch thread over~
+--- early exit test: PASS
+rm: cannot remove 'mr-mediate': Is a directory
+*** Starting crash test.
+2022/02/04 20:46:43 rpc.Register: reply type of method "Construct" is not a pointer: "int"
+2022/02/04 20:46:43 rpc.Register: method "Done" has 1 input parameters; needs exactly three
+2022/02/04 20:46:43 rpc.Register: method "FindTimeoutWorker" has 1 input parameters; needs exactly three
+2022/02/04 20:46:43 rpc.Register: method "WatchWorkerAlive" has 1 input parameters; needs exactly three
+Watch all threads!!!
+Current workers are :
+==================
+Watch all threads!!!
+Current workers are :
+==================
+Run Map task : 100082
+ Run Map task : 100075
+ mapTask file : ../pg-being_ernest.txt
+mapTask file : ../pg-dorian_gray.txt
+Run Map task : 100081
+ Run Map task : 100085
+ mapTask file : ../pg-frankenstein.txt
+mapTask file : ../pg-grimm.txt
+CHECK-MAP 2 success
+map task success :../pg-frankenstein.txt 100081Run Map task : 100081
+ mapTask file : ../pg-huckleberry_finn.txt
+CHECK-MAP 3 success
+map task success :../pg-grimm.txt 100085Run Map task : 100085
+ mapTask file : ../pg-metamorphosis.txt
+CHECK-MAP 5 success
+map task success :../pg-metamorphosis.txt 100085Run Map task : 100085
+ mapTask file : ../pg-sherlock_holmes.txt
+CHECK-MAP 6 success
+map task success :../pg-sherlock_holmes.txt 100085Run Map task : 100085
+ mapTask file : ../pg-tom_sawyer.txt
+Watch all threads!!!
+Current workers are :
+100082 978.740924ms
+100075 961.793237ms
+100081 880.161419ms
+100085 800.950256ms
+==================
+Run Map task : 100127
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100082 1.980106553s
+100075 1.96313006s
+100081 1.881497275s
+100085 1.80228139s
+==================
+Run Map task : 100127
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100085 2.80320386s
+100082 2.981173078s
+100075 2.964223121s
+100081 2.882596224s
+==================
+Run Map task : 100127
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100082 3.982533099s
+100075 3.965564392s
+100081 3.884008906s
+100085 3.804806198s
+==================
+Run Map task : 100127
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100082 4.983522287s
+100075 4.966545572s
+100081 4.884921139s
+100085 4.805712239s
+==================
+Run Map task : 100127
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+CHECK-MAP 1 success
+map task success :../pg-dorian_gray.txt 100075Run Map task : 100075
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100075 5.967506548s
+100081 5.885886971s
+100085 5.806688785s
+100082 5.984578593s
+==================
+Run Map task : 100127
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100075
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100082 6.985769093s
+100075 6.968796549s
+100081 6.887174301s
+100085 6.807959894s
+==================
+Run Map task : 100127
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100075
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100082 7.987092848s
+100075 7.970663595s
+100081 7.889070527s
+100085 7.809919892s
+==================
+Run Map task : 100127
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100075
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100075 8.971794072s
+100081 8.890187902s
+100085 8.810975876s
+100082 8.988917765s
+==================
+Run Map task : 100127
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100075
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100085 9.812121547s
+100082 9.990038595s
+100075 9.973052356s
+100081 9.891411202s
+==================
+Run Map task : 100127
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100075
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100082 10.991321085s
+100075 10.974369141s
+100081 10.892732721s
+100085 10.813517868s
+File ../pg-being_ernest.txt will rerun
+File ../pg-frankenstein.txt will rerun
+File ../pg-huckleberry_finn.txt will rerun
+File ../pg-grimm.txt will rerun
+File ../pg-metamorphosis.txt will rerun
+File ../pg-sherlock_holmes.txt will rerun
+File ../pg-tom_sawyer.txt will rerun
+==================
+Run Map task : 100127
+ mapTask file : ../pg-being_ernest.txt
+Run Map task : 100133
+ mapTask file : ../pg-frankenstein.txt
+Run Map task : 100140
+ mapTask file : ../pg-grimm.txt
+Run Map task : 100075
+ mapTask file : ../pg-huckleberry_finn.txt
+Watch all threads!!!
+Current workers are :
+100127 861.183275ms
+100075 651.720872ms
+100133 718.046371ms
+100140 709.772869ms
+==================
+Watch all threads!!!
+Current workers are :
+100140 1.711134449s
+100127 1.862662481s
+100075 1.653222006s
+100133 1.719545484s
+==================
+CHECK-MAP 0 success
+map task success :../pg-being_ernest.txt 100127Run Map task : 100127
+ mapTask file : ../pg-metamorphosis.txt
+Watch all threads!!!
+Current workers are :
+100140 2.712688144s
+100127 156.090222ms
+100075 2.654877498s
+100133 2.721197752s
+==================
+Watch all threads!!!
+Current workers are :
+100140 3.714168595s
+100127 1.157441593s
+100075 3.656217793s
+100133 3.722523784s
+==================
+CHECK-MAP 5 success
+map task success :../pg-metamorphosis.txt 100127Run Map task : 100127
+ mapTask file : ../pg-sherlock_holmes.txt
+CHECK-MAP 6 success
+map task success :../pg-sherlock_holmes.txt 100127Run Map task : 100127
+ mapTask file : ../pg-tom_sawyer.txt
+Watch all threads!!!
+Current workers are :
+100140 4.714594156s
+100127 558.297087ms
+100075 4.656651642s
+100133 4.722958599s
+==================
+Run Map task : 100319
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100127 1.558890725s
+100075 5.657238473s
+100133 5.723561634s
+100140 5.715284973s
+==================
+Run Map task : 100319
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100127 2.560256002s
+100075 6.659101196s
+100133 6.725433502s
+100140 6.717157676s
+==================
+Run Map task : 100319
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100127 3.561433276s
+100075 7.659822873s
+100133 7.726147138s
+100140 7.717893407s
+==================
+Run Map task : 100319
+ mapTask file : 
+CHECK-MAP 3 success
+map task success :../pg-grimm.txt 100140Run Map task : 100140
+ mapTask file : 
+CHECK-MAP 2 success
+map task success :../pg-frankenstein.txt 100133Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100127 4.562546755s
+100075 8.660894848s
+100133 8.727284362s
+100140 8.719016135s
+==================
+Run Map task : 100319
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100127 5.563344701s
+100075 9.661771955s
+100133 9.728130131s
+100140 9.719932475s
+==================
+Run Map task : 100319
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100133 10.729613166s
+100140 10.721412667s
+100127 6.565177919s
+100075 10.663598035s
+File ../pg-huckleberry_finn.txt will rerun
+File ../pg-dorian_gray.txt will rerun
+==================
+Run Map task : 100319
+ mapTask file : ../pg-dorian_gray.txt
+Run Map task : 100140
+ mapTask file : ../pg-huckleberry_finn.txt
+Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100127 7.566218479s
+100319 497.100726ms
+100133 11.730876886s
+100140 347.812892ms
+==================
+Run Map task : 100383
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100140 1.349169288s
+100127 8.567665012s
+100319 1.498541106s
+100133 12.732314971s
+==================
+Run Map task : 100383
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100127 9.569764381s
+100319 2.500702326s
+100133 13.734560957s
+100140 2.351562039s
+==================
+CHECK-MAP 4 success
+map task success :../pg-huckleberry_finn.txt 100140Run Map task : 100140
+ mapTask file : 
+Run Map task : 100383
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100127 10.571316928s
+100319 3.50222824s
+100133 14.736021414s
+100140 3.352968282s
+File ../pg-being_ernest.txt will rerun
+File ../pg-metamorphosis.txt will rerun
+File ../pg-sherlock_holmes.txt will rerun
+File ../pg-tom_sawyer.txt will rerun
+==================
+Run Map task : 100140
+ mapTask file : ../pg-being_ernest.txt
+Run Map task : 100383
+ mapTask file : ../pg-metamorphosis.txt
+Run Map task : 100133
+ mapTask file : ../pg-sherlock_holmes.txt
+Watch all threads!!!
+Current workers are :
+100383 446.364276ms
+100319 4.503064732s
+100133 165.866684ms
+100140 843.804988ms
+==================
+Watch all threads!!!
+Current workers are :
+100319 5.504411201s
+100133 1.167219708s
+100140 1.845162819s
+100383 1.447795908s
+==================
+Watch all threads!!!
+Current workers are :
+100133 2.167951849s
+100140 2.845901076s
+100383 2.448539583s
+100319 6.505225458s
+==================
+Watch all threads!!!
+Current workers are :
+100383 3.449091007s
+100319 7.505787068s
+100133 3.168586698s
+100140 3.846522879s
+==================
+CHECK-MAP 5 success
+map task success :../pg-metamorphosis.txt 100383Run Map task : 100383
+ mapTask file : ../pg-tom_sawyer.txt
+Watch all threads!!!
+Current workers are :
+100383 883.888546ms
+100319 8.506657863s
+100133 4.169456519s
+100140 4.847393742s
+==================
+Run Map task : 100497
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100133 5.171174003s
+100140 5.84915364s
+100383 1.885741546s
+100319 9.508502785s
+==================
+Run Map task : 100497
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100383 2.887463645s
+100319 10.5102324s
+100133 6.17303127s
+100140 6.850968426s
+File ../pg-dorian_gray.txt will rerun
+==================
+Run Map task : 100497
+ mapTask file : ../pg-dorian_gray.txt
+Watch all threads!!!
+Current workers are :
+100140 7.852954529s
+100383 3.889530382s
+100497 833.573498ms
+100133 7.175084832s
+==================
+Watch all threads!!!
+Current workers are :
+100383 4.889916754s
+100497 1.833971955s
+100133 8.175488362s
+100140 8.853431838s
+==================
+CHECK-MAP 0 success
+map task success :../pg-being_ernest.txt 100140Run Map task : 100140
+ mapTask file : 
+CHECK-MAP 6 success
+map task success :../pg-sherlock_holmes.txt 100133Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100140 9.854322022s
+100383 5.890958643s
+100497 2.835030908s
+100133 9.176555754s
+==================
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100133 10.179086941s
+100140 10.857053284s
+100383 6.893628837s
+100497 3.837693009s
+==================
+CHECK-MAP 1 success
+map task success :../pg-dorian_gray.txt 100497Run Map task : 100497
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100383 7.894272968s
+100497 4.838364655s
+100133 11.17990136s
+100140 11.857847934s
+==================
+Run Map task : 100497
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100383 8.894704299s
+100497 5.838777221s
+100133 12.180303093s
+100140 12.858545897s
+==================
+Run Map task : 100497
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100140 13.859430806s
+100383 9.896007946s
+100497 6.840051403s
+100133 13.181582755s
+==================
+Run Map task : 100497
+ mapTask file : 
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100383 10.897724567s
+100497 7.841798111s
+100133 14.18333405s
+100140 14.861277713s
+File ../pg-metamorphosis.txt will rerun
+File ../pg-tom_sawyer.txt will rerun
+==================
+Run Map task : 100497
+ mapTask file : ../pg-metamorphosis.txt
+CHECK-MAP 5 success
+map task success :../pg-metamorphosis.txt 100497Run Map task : 100497
+ mapTask file : ../pg-tom_sawyer.txt
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100497 843.060565ms
+100133 15.184559558s
+100140 15.862500224s
+==================
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100133 16.18499367s
+100140 16.862943215s
+100497 1.843579035s
+==================
+Run Map task : 100140
+ mapTask file : 
+Run Map task : 100133
+ mapTask file : 
+CHECK-MAP 7 success
+ALL map task is over
+map task success :../pg-tom_sawyer.txt 100497Run Map task : 100497
+ mapTask file : 
+send task 0
+CHECK-Reduce 0 check start
+CHECK-Reduce 0 success
+Success input into mr-out-0
+send task 2
+Watch all threads!!!
+Current workers are :
+100497 166.734424ms
+==================
+Run Map task : 100140
+ mapTask file : 
+send task 5
+Run Map task : 100133
+ mapTask file : 
+send task 9
+Watch all threads!!!
+Current workers are :
+100133 442.672606ms
+100497 1.167350993s
+100140 743.951804ms
+==================
+Run Map task : 100630
+ mapTask file : 
+Watch all threads!!!
+Current workers are :
+100497 2.16796908s
+100140 1.744601996s
+100133 1.443392398s
+==================
+Watch all threads!!!
+Current workers are :
+100497 3.168637972s
+100140 2.745244704s
+100133 2.444035746s
+==================
+CHECK-Reduce 9 check start
+CHECK-Reduce 9 success
+Success input into mr-out-9
+Watch all threads!!!
+Current workers are :
+100497 4.169288452s
+100140 3.745890023s
+100133 3.44468074s
+==================
+Watch all threads!!!
+Current workers are :
+100497 5.170404825s
+100140 4.747008501s
+100133 4.445841205s
+==================
+Watch all threads!!!
+Current workers are :
+100497 6.171386298s
+100140 5.748049609s
+100133 5.446888396s
+==================
+Watch all threads!!!
+Current workers are :
+100497 7.172458367s
+100140 6.749061344s
+100133 6.447852099s
+==================
+CHECK-Reduce 2 check start
+CHECK-Reduce 2 success
+Success input into mr-out-2
+Watch all threads!!!
+Current workers are :
+100497 8.173331823s
+100140 7.749938355s
+100133 7.448729669s
+==================
+Watch all threads!!!
+Current workers are :
+100497 9.173816174s
+100140 8.750462122s
+100133 8.449271499s
+==================
+Watch all threads!!!
+Current workers are :
+100497 10.175115694s
+100140 9.751718687s
+100133 9.450509226s
+==================
+Watch all threads!!!
+Current workers are :
+100140 10.75289573s
+100133 10.451696323s
+==================
+send task 5
+Watch all threads!!!
+Current workers are :
+100630 686.629634ms
+==================
+Watch all threads!!!
+Current workers are :
+100630 1.688430514s
+==================
+Watch all threads!!!
+Current workers are :
+100630 2.689009888s
+==================
+CHECK-Reduce 5 check start
+CHECK-Reduce 5 over
+CHECK-Reduce 5 success
+Success input into mr-out-5
+Worker has gone
+CHECK-Reduce done
+ALL TASK OVER!!!
+Watch thread over~
+Worker has gone
+Worker has gone
+Run Map task : 100806
+ mapTask file : 
+Worker has gone
+--- crash test: PASS
+*** PASSED ALL TESTS

@@ -61,13 +61,14 @@ rm -f mr-*
 
 failed_any=0
 
-#########################################################
+#######################################################
 # first word-count
 
 # generate the correct output
 ../mrsequential ../../mrapps/wc.so ../pg*txt || exit 1
 sort mr-out-0 > mr-correct-wc.txt
 rm -f mr-out*
+rm -rf mr-m
 
 echo '***' Starting wc test.
 
@@ -100,9 +101,9 @@ fi
 # wait for remaining workers and coordinator to exit.
 wait
 
-#########################################################
+########################################################
 # now indexer
-rm -f mr-*
+rm -rf mr-*
 
 # generate the correct output
 ../mrsequential ../../mrapps/indexer.so ../pg*txt || exit 1
@@ -130,10 +131,10 @@ fi
 
 wait
 
-#########################################################
+######################################################
 echo '***' Starting map parallelism test.
 
-rm -f mr-*
+rm -rf mr-*
 
 $TIMEOUT ../mrcoordinator ../pg*txt &
 sleep 1
@@ -161,7 +162,7 @@ fi
 wait
 
 
-#########################################################
+#######################################################
 echo '***' Starting reduce parallelism test.
 
 rm -f mr-*
@@ -209,7 +210,7 @@ fi
 
 wait
 
-#########################################################
+########################################################
 # test whether any worker or coordinator exits before the
 # task has completed (i.e., all output files have been finalized)
 rm -f mr-*
