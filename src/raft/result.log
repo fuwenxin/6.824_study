@@ -1,0 +1,678 @@
+Start tick
+Start tick
+0 not election time out 0
+1 not election time out 0
+Start tick
+Test (2A): initial election ...
+2 not election time out 0
+0 not election time out 1001
+1 not election time out 1000
+2 not election time out 1001
+0 not election time out 2003
+sleep time:  727
+2 not election time out 2002
+sleep time:  916
+1 not election time out 2003
+sleep time:  981
+0 not election time out 2731
+Start elect 2022-02-13 02:37:17.131284724 -0800 PST m=+2.734427815
+0  Send vote message to 1
+0  Send vote message to 2
+1 vote for 0
+2 vote for 0
+1 successfully vote for 0
+2 successfully vote for 0
+2 not election time out 2918
+Start elect 2022-02-13 02:37:17.320261406 -0800 PST m=+2.923404497
+2  Send vote message to 0
+2  Send vote message to 1
+0 vote for 0
+0 failed vote for 2
+1 vote for 0
+1 failed vote for 2
+1 not election time out 2985
+Start elect 2022-02-13 02:37:17.386098099 -0800 PST m=+2.989241224
+1  Send vote message to 0
+0 vote for 0
+0 failed vote for 1
+1  Send vote message to 2
+2 vote for 2
+2 failed vote for 1
+0 become leader
+0 not election time out 3734
+1 recv heartbeat from 0
+2 recv heartbeat from 0
+2 not election time out 183
+1 not election time out 255
+1 recv heartbeat from 0
+2 recv heartbeat from 0
+0 not election time out 4736
+2 recv heartbeat from 0
+1 recv heartbeat from 0
+2 not election time out 185
+1 not election time out 253
+1 recv heartbeat from 0
+2 recv heartbeat from 0
+0 not election time out 5737
+1 recv heartbeat from 0
+2 recv heartbeat from 0
+2 not election time out 185
+1 not election time out 253
+2 recv heartbeat from 0
+1 recv heartbeat from 0
+  ... Passed --   6.6  3   18    3882    0
+Start tick
+0 not election time out 0
+Start tick
+1 not election time out 0
+Start tick
+Test (2A): election after network failure ...
+-1
+2 not election time out 0
+0 heartbeat be killed
+0 be killed
+2 be killed
+1 be killed
+0 not election time out 1001
+1 not election time out 1001
+2 not election time out 1000
+1 not election time out 2002
+0 not election time out 2002
+2 not election time out 2001
+sleep time:  662
+sleep time:  593
+sleep time:  743
+0 not election time out 2596
+Start elect 2022-02-13 02:37:23.62647064 -0800 PST m=+9.229613730
+0  Send vote message to 1
+0  Send vote message to 2
+2 vote for 0
+2 successfully vote for 0
+1 vote for 0
+1 successfully vote for 0
+2 not election time out 2664
+Start elect 2022-02-13 02:37:23.695010248 -0800 PST m=+9.298153348
+2  Send vote message to 0
+2  Send vote message to 1
+1 vote for 0
+0 vote for 0
+0 failed vote for 2
+1 failed vote for 2
+1 not election time out 2747
+Start elect 2022-02-13 02:37:23.777485979 -0800 PST m=+9.380629062
+1  Send vote message to 0
+1  Send vote message to 2
+0 vote for 0
+0 failed vote for 1
+2 vote for 2
+2 failed vote for 1
+0 become leader
+0 not election time out 3597
+1 recv heartbeat from 0
+2 recv heartbeat from 0
+2 not election time out 66
+1 not election time out 150
+0
+0 not election time out 4598
+2 not election time out 1066
+1 not election time out 1151
+0 not election time out 5599
+2 not election time out 2067
+sleep time:  786
+1 not election time out 2152
+sleep time:  868
+2 not election time out 2853
+Start elect 2022-02-13 02:37:27.483154509 -0800 PST m=+13.086297606
+2  Send vote message to 0
+2  Send vote message to 1
+1 vote for 2
+1 successfully vote for 2
+0 not election time out 6600
+1 not election time out 3021
+Start elect 2022-02-13 02:37:27.650055593 -0800 PST m=+13.253198689
+1  Send vote message to 0
+1  Send vote message to 2
+2 vote for 2
+2 failed vote for 1
+2 become leader
+2 not election time out 3855
+1 recv heartbeat from 2
+0 not election time out 7601
+1 not election time out 164
+1
+0 failed vote for 1
+0 recv heartbeat from 2
+1 recv heartbeat from 2
+2 recv heartbeat from 0
+1 recv heartbeat from 0
+2
+2 not election time out 351
+0 not election time out 644
+1 not election time out 514
+2 not election time out 1352
+0 not election time out 1645
+1 not election time out 1516
+3
+2 not election time out 2352
+0 not election time out 2645
+1 recv heartbeat from 0
+1 not election time out 13
+4
+0 failed vote for 2
+0 recv heartbeat from 2
+1 recv heartbeat from 2
+2 recv heartbeat from 0
+1 recv heartbeat from 0
+5
+  ... Passed --  11.3  3   58   11192    0
+Start tick
+Start tick
+0 not election time out 0
+1 not election time out 0
+Start tick
+2 not election time out 0
+Start tick
+Start tick
+3 not election time out 0
+4 not election time out 0
+Start tick
+Start tick
+5 not election time out 0
+6 not election time out 0
+Test (2A): multiple elections ...
+2 be killed
+2 heartbeat be killed
+0 be killed
+0 heartbeat be killed
+1 be killed
+2 not election time out 1000
+0 not election time out 1001
+1 not election time out 1000
+6 not election time out 1000
+4 not election time out 1001
+3 not election time out 1002
+5 not election time out 1000
+2 not election time out 2001
+sleep time:  610
+1 not election time out 2001
+sleep time:  887
+0 not election time out 2002
+sleep time:  840
+3 not election time out 2002
+sleep time:  825
+6 not election time out 2001
+4 not election time out 2002
+sleep time:  859
+sleep time:  969
+5 not election time out 2001
+sleep time:  810
+2 not election time out 2613
+Start elect 2022-02-13 02:37:34.939757848 -0800 PST m=+20.542900937
+2  Send vote message to 0
+2  Send vote message to 1
+2  Send vote message to 3
+2  Send vote message to 4
+2  Send vote message to 5
+2  Send vote message to 6
+4 vote for 2
+3 vote for 2
+3 successfully vote for 2
+4 successfully vote for 2
+0 vote for 2
+1 vote for 2
+0 successfully vote for 2
+1 successfully vote for 2
+6 vote for 2
+6 successfully vote for 2
+5 vote for 2
+5 successfully vote for 2
+5 not election time out 2812
+Start elect 2022-02-13 02:37:35.140292459 -0800 PST m=+20.743435559
+5  Send vote message to 0
+5  Send vote message to 1
+5  Send vote message to 2
+5  Send vote message to 3
+5  Send vote message to 4
+5  Send vote message to 6
+2 vote for 2
+3 vote for 2
+2 failed vote for 5
+3 failed vote for 5
+4 vote for 2
+6 vote for 2
+4 failed vote for 5
+6 failed vote for 5
+1 vote for 2
+1 failed vote for 5
+0 vote for 2
+0 failed vote for 5
+3 not election time out 2829
+Start elect 2022-02-13 02:37:35.156688717 -0800 PST m=+20.759831832
+3  Send vote message to 0
+3  Send vote message to 1
+3  Send vote message to 2
+3  Send vote message to 4
+3  Send vote message to 5
+3  Send vote message to 6
+0 vote for 2
+5 vote for 5
+0 failed vote for 3
+2 vote for 2
+4 vote for 2
+6 vote for 2
+4 failed vote for 3
+6 failed vote for 3
+1 vote for 2
+5 failed vote for 3
+1 failed vote for 3
+2 failed vote for 3
+0 not election time out 2842
+Start elect 2022-02-13 02:37:35.168382792 -0800 PST m=+20.771525882
+0  Send vote message to 1
+0  Send vote message to 2
+0  Send vote message to 3
+0  Send vote message to 4
+0  Send vote message to 5
+0  Send vote message to 6
+1 vote for 2
+1 failed vote for 0
+2 vote for 2
+2 failed vote for 0
+6 vote for 2
+6 failed vote for 0
+3 vote for 3
+5 vote for 5
+3 failed vote for 0
+4 vote for 2
+5 failed vote for 0
+4 failed vote for 0
+6 not election time out 2862
+Start elect 2022-02-13 02:37:35.190550269 -0800 PST m=+20.793693369
+6  Send vote message to 0
+6  Send vote message to 1
+6  Send vote message to 2
+6  Send vote message to 3
+6  Send vote message to 4
+6  Send vote message to 5
+1 vote for 2
+2 vote for 2
+1 failed vote for 6
+2 failed vote for 6
+5 vote for 5
+4 vote for 2
+0 vote for 0
+4 failed vote for 6
+3 vote for 3
+5 failed vote for 6
+3 failed vote for 6
+0 failed vote for 6
+1 not election time out 2889
+Start elect 2022-02-13 02:37:35.215966675 -0800 PST m=+20.819109769
+1  Send vote message to 0
+1  Send vote message to 2
+1  Send vote message to 3
+1  Send vote message to 4
+1  Send vote message to 5
+1  Send vote message to 6
+0 vote for 0
+0 failed vote for 1
+5 vote for 5
+6 vote for 6
+6 failed vote for 1
+3 vote for 3
+5 failed vote for 1
+3 failed vote for 1
+2 vote for 2
+4 vote for 2
+2 failed vote for 1
+4 failed vote for 1
+4 not election time out 2971
+Start elect 2022-02-13 02:37:35.299245711 -0800 PST m=+20.902388805
+4  Send vote message to 0
+4  Send vote message to 1
+4  Send vote message to 2
+4  Send vote message to 3
+4  Send vote message to 5
+4  Send vote message to 6
+3 vote for 3
+0 vote for 0
+2 vote for 2
+1 vote for 1
+2 failed vote for 4
+5 vote for 5
+3 failed vote for 4
+0 failed vote for 4
+6 vote for 6
+1 failed vote for 4
+6 failed vote for 4
+5 failed vote for 4
+2 become leader
+2 not election time out 3614
+3 recv heartbeat from 2
+5 recv heartbeat from 2
+0 recv heartbeat from 2
+1 recv heartbeat from 2
+6 recv heartbeat from 2
+4 recv heartbeat from 2
+5 not election time out 198
+3 not election time out 215
+0 not election time out 226
+6 not election time out 247
+1 not election time out 273
+4 not election time out 355
+0 recv heartbeat from 2
+1 recv heartbeat from 2
+3 recv heartbeat from 2
+2 not election time out 4616
+3 recv heartbeat from 2
+1 recv heartbeat from 2
+4 recv heartbeat from 2
+5 not election time out 1200
+3 not election time out 212
+0 not election time out 725
+6 not election time out 1248
+1 not election time out 270
+4 not election time out 355
+2 not election time out 5617
+5 not election time out 2201
+sleep time:  857
+3 not election time out 1214
+0 not election time out 1726
+6 not election time out 2249
+sleep time:  510
+1 not election time out 1271
+4 not election time out 1356
+6 not election time out 2759
+Start elect 2022-02-13 02:37:38.704382774 -0800 PST m=+24.307525867
+6  Send vote message to 0
+6  Send vote message to 1
+6  Send vote message to 2
+6  Send vote message to 3
+6  Send vote message to 4
+6  Send vote message to 5
+4 vote for 6
+4 successfully vote for 6
+1 vote for 6
+1 successfully vote for 6
+5 vote for 6
+0 vote for 6
+5 successfully vote for 6
+0 successfully vote for 6
+2 not election time out 6618
+5 not election time out 3059
+Start elect 2022-02-13 02:37:39.001968459 -0800 PST m=+24.605111555
+5  Send vote message to 0
+5  Send vote message to 1
+5  Send vote message to 2
+1 vote for 6
+0 vote for 6
+5  Send vote message to 3
+0 failed vote for 5
+1 failed vote for 5
+5  Send vote message to 4
+5  Send vote message to 6
+4 vote for 6
+4 failed vote for 5
+6 vote for 6
+6 failed vote for 5
+3 not election time out 2215
+sleep time:  593
+0 not election time out 2727
+sleep time:  955
+1 not election time out 2272
+sleep time:  669
+4 not election time out 2357
+sleep time:  781
+6 become leader
+6 not election time out 3761
+0 recv heartbeat from 6
+5 recv heartbeat from 6
+1 recv heartbeat from 6
+4 recv heartbeat from 6
+3 not election time out 2809
+Start elect 2022-02-13 02:37:39.755705466 -0800 PST m=+25.358848567
+3  Send vote message to 0
+3  Send vote message to 1
+3  Send vote message to 2
+3  Send vote message to 4
+3  Send vote message to 5
+3  Send vote message to 6
+1 not election time out 179
+1 not election time out 179
+2 not election time out 7620
+2 failed vote for 3
+1 recv heartbeat from 2
+3 recv heartbeat from 2
+6 recv heartbeat from 2
+4 recv heartbeat from 2
+5 not election time out 297
+4 not election time out 127
+4 not election time out 127
+0 not election time out 420
+0 not election time out 420
+4 recv heartbeat from 6
+1 recv heartbeat from 6
+2 recv heartbeat from 6
+3 recv heartbeat from 6
+6 not election time out 748
+4 recv heartbeat from 6
+0 recv heartbeat from 6
+1 recv heartbeat from 6
+3 not election time out 544
+1 not election time out 177
+2 not election time out 735
+5 not election time out 1297
+4 not election time out 376
+0 not election time out 416
+6 not election time out 1750
+3 not election time out 1546
+1 not election time out 1178
+3 failed vote for 5
+2 not election time out 1737
+5 not election time out 2299
+sleep time:  686
+4 not election time out 1376
+0 not election time out 1417
+6 failed vote for 3
+5 not election time out 2986
+Start elect 2022-02-13 02:37:42.695755568 -0800 PST m=+28.298898666
+5  Send vote message to 0
+5  Send vote message to 1
+5  Send vote message to 2
+5  Send vote message to 3
+5  Send vote message to 4
+5  Send vote message to 6
+0 vote for 6
+3 vote for 5
+1 vote for 6
+3 successfully vote for 5
+1 failed vote for 5
+4 vote for 6
+0 failed vote for 5
+4 failed vote for 5
+6 not election time out 2750
+3 not election time out 2547
+sleep time:  842
+1 not election time out 2179
+sleep time:  524
+5 failed vote for 3
+2 not election time out 2738
+1 failed vote for 3
+4 not election time out 2378
+sleep time:  576
+0 not election time out 2418
+sleep time:  631
+4 failed vote for 3
+1 not election time out 2704
+Start elect 2022-02-13 02:37:43.416809124 -0800 PST m=+29.019952224
+1  Send vote message to 0
+1  Send vote message to 2
+1  Send vote message to 3
+1  Send vote message to 4
+1  Send vote message to 5
+0 vote for 6
+4 vote for 6
+1  Send vote message to 6
+0 failed vote for 1
+3 vote for 5
+5 vote for 5
+5 failed vote for 1
+3 failed vote for 1
+4 failed vote for 1
+3 not election time out 3389
+Start elect 2022-02-13 02:37:43.602058579 -0800 PST m=+29.205201682
+3  Send vote message to 0
+3  Send vote message to 1
+3  Send vote message to 2
+3  Send vote message to 4
+3  Send vote message to 5
+3  Send vote message to 6
+5 vote for 5
+4 vote for 6
+1 vote for 1
+0 vote for 6
+5 failed vote for 3
+0 failed vote for 3
+4 failed vote for 3
+1 failed vote for 3
+4 not election time out 2954
+Start elect 2022-02-13 02:37:43.664756464 -0800 PST m=+29.267899564
+4  Send vote message to 0
+4  Send vote message to 1
+4  Send vote message to 2
+4  Send vote message to 3
+4  Send vote message to 5
+4  Send vote message to 6
+5 vote for 5
+0 vote for 6
+3 vote for 3
+5 failed vote for 4
+0 failed vote for 4
+3 failed vote for 4
+1 vote for 1
+1 failed vote for 4
+5 not election time out 3987
+sleep time:  942
+6 not election time out 3752
+0 not election time out 3050
+Start elect 2022-02-13 02:37:43.761555744 -0800 PST m=+29.364698845
+0  Send vote message to 1
+0  Send vote message to 2
+0  Send vote message to 3
+0  Send vote message to 4
+0  Send vote message to 5
+0  Send vote message to 6
+1 vote for 1
+1 failed vote for 0
+3 vote for 3
+4 vote for 4
+3 failed vote for 0
+5 vote for -1
+5 failed vote for 0
+4 failed vote for 0
+2 not election time out 3739
+6 failed vote for 4
+3 failed vote for 6
+1 not election time out 3709
+sleep time:  641
+3 not election time out 4390
+sleep time:  947
+5 not election time out 4931
+Start elect 2022-02-13 02:37:44.640340748 -0800 PST m=+30.243483848
+5  Send vote message to 0
+5  Send vote message to 1
+5  Send vote message to 2
+5  Send vote message to 3
+5  Send vote message to 4
+5  Send vote message to 6
+0 vote for 0
+0 failed vote for 5
+1 vote for 5
+4 vote for 4
+1 successfully vote for 5
+4 failed vote for 5
+3 vote for 5
+3 successfully vote for 5
+4 not election time out 3956
+sleep time:  756
+6 not election time out 4753
+0 not election time out 4052
+sleep time:  925
+2 failed vote for 5
+2 failed vote for 3
+2 not election time out 4739
+1 not election time out 4350
+Start elect 2022-02-13 02:37:45.062930381 -0800 PST m=+30.666073489
+1  Send vote message to 0
+1  Send vote message to 2
+1  Send vote message to 3
+1  Send vote message to 4
+1  Send vote message to 5
+1  Send vote message to 6
+5 vote for 5
+5 failed vote for 1
+4 vote for 1
+4 successfully vote for 1
+0 vote for 1
+0 successfully vote for 1
+3 vote for 5
+3 failed vote for 1
+0 failed vote for 3
+4 not election time out 4712
+Start elect 2022-02-13 02:37:45.422857041 -0800 PST m=+31.026000158
+4  Send vote message to 0
+4  Send vote message to 1
+4  Send vote message to 2
+4  Send vote message to 3
+4  Send vote message to 5
+4  Send vote message to 6
+0 vote for 1
+0 failed vote for 4
+1 vote for 1
+3 vote for 5
+1 failed vote for 4
+5 vote for 5
+3 failed vote for 4
+5 failed vote for 4
+2 failed vote for 6
+3 not election time out 5339
+Start elect 2022-02-13 02:37:45.551748602 -0800 PST m=+31.154891701
+3  Send vote message to 0
+3  Send vote message to 1
+3  Send vote message to 2
+1 vote for 1
+0 vote for 1
+0 failed vote for 3
+1 failed vote for 3
+3  Send vote message to 4
+3  Send vote message to 5
+3  Send vote message to 6
+5 vote for 5
+4 vote for 4
+5 failed vote for 3
+4 failed vote for 3
+5 not election time out 5932
+sleep time:  993
+6 failed vote for 1
+0 not election time out 4978
+Start elect 2022-02-13 02:37:45.690174213 -0800 PST m=+31.293317323
+0  Send vote message to 1
+0  Send vote message to 2
+0  Send vote message to 3
+0  Send vote message to 4
+0  Send vote message to 5
+0  Send vote message to 6
+1 vote for 1
+1 failed vote for 0
+3 vote for 3
+4 vote for 4
+3 failed vote for 0
+5 vote for 0
+4 failed vote for 0
+5 successfully vote for 0
+6 not election time out 5755
+--- FAIL: TestManyElections2A (13.52s)
+    config.go:400: expected one leader, got none
+FAIL
+exit status 1
+FAIL	6.824/raft	31.463s
