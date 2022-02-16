@@ -78,6 +78,7 @@ const heartbeatTimeLap = 500
 const electionTimeout = 2000
 const sleepLapTimeBeforeElection = 1000
 const appendEntriesTetryTimeLap = 500
+const commitTimeLap = 200
 
 //
 // A Go object implementing a single Raft peer.
@@ -106,7 +107,11 @@ type Raft struct {
 	nextIndex    []int
 	matchedIndex []int
 
+	commitCount map[int]int
+
 	lastAppendTime time.Time
+
+	applyCh chan ApplyMsg
 }
 
 type Log struct {
@@ -118,7 +123,7 @@ type Log struct {
 func (rf *Raft) GetLastItemInfo() (int, int) {
 	l := len(rf.log)
 	if l == 0 {
-		return 0, 0
+		return -1, 0
 	} else {
 		return l - 1, rf.log[l-1].Term
 	}
@@ -130,7 +135,6 @@ func (rf *Raft) GetState() (int, bool) {
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 	term := rf.currentTerm
-	// TODO - whether this server believes it is the leader. ???
 	isleader := (rf.curState == Leader)
 	// Your code here (2A).
 	return term, isleader
@@ -235,11 +239,63 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, repl *AppendEntriesRepl) 
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 
-	fmt.Println(rf.me, "recv heartbeat from", args.LeaderId)
+	// fmt.Println("[append rpc response]", rf.me, "recv heartbeat from", args)
 	rf.lastAppendTime = time.Now()
-	if args.Entries != nil {
 
+	if args.Term < rf.currentTerm {
+		repl.Success = false
+		return
+	} else if args.Term >= rf.currentTerm && rf.curState == Leader {
+		rf.curState = Follower
 	}
+	if args.Entries != nil {
+		fmt.Println("[append recv],", rf.me, "recv append msg from", args.LeaderId)
+		if args.PrevLogIndex > len(rf.log) || (args.PrevLogIndex < len(rf.log) && args.PrevLogTerm != rf.log[args.PrevLogIndex].Term) {
+			repl.Success = false
+		} else {
+			i := 0
+			j := args.PrevLogIndex
+			for ; j < len(rf.log); j, i = j+1, i+1 {
+				if args.Entries[i].Term != rf.log[j].Term {
+					break
+				}
+			}
+			for ; i < len(args.Entries); j, i = j+1, i+1 {
+				if j < len(rf.log) {
+					rf.log[j] = args.Entries[i]
+				} else {
+					rf.log = append(rf.log, args.Entries[i])
+				}
+				amsg := ApplyMsg{}
+				amsg.Command = rf.log[j].Command
+				amsg.CommandIndex = j + 1
+				amsg.CommandValid = true
+				fmt.Println("[log repli]", rf.me, "send msg to server", amsg)
+				rf.applyCh <- amsg
+			}
+
+			// fmt.Println("[Append Resopnse] rf.log:", rf.log)
+			repl.Success = true
+			if rf.commitIndex < args.LeaderCommit {
+				lastIndex := Max(len(rf.log)-1, 0)
+				rf.commitIndex = Min(lastIndex, args.LeaderCommit)
+			}
+		}
+	}
+}
+
+func Min(a, b int) int {
+	if a <= b {
+		return a
+	}
+	return b
+}
+
+func Max(a, b int) int {
+	if a >= b {
+		return a
+	}
+	return b
 }
 
 //
@@ -265,7 +321,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 			rf.voteFor = args.CandidateId
 		}
 	}
-	fmt.Println(rf.me, "vote for", rf.voteFor)
+	fmt.Println("[response info]", rf.me, "vote for", rf.voteFor)
 }
 
 //
@@ -322,13 +378,58 @@ func (rf *Raft) sendAppnendEntries(server int, args *AppendEntriesArgs, repl *Ap
 // the leader.
 //
 func (rf *Raft) Start(command interface{}) (int, int, bool) {
-	index := -1
-	term := -1
-	isLeader := true
-
 	// Your code here (2B).
+	rf.mu.Lock()
+	index, term := rf.GetLastItemInfo()
+	index = index + 1
+	if !(rf.curState == Leader) {
+		rf.mu.Unlock()
+		return index + 1, term, false
+	}
+	rf.log = append(rf.log, Log{Term: rf.currentTerm, Command: command})
+	amsg := ApplyMsg{}
+	amsg.Command = rf.log[index].Command
+	amsg.CommandIndex = index + 1
+	amsg.CommandValid = true
+	fmt.Println("[log repli]", rf.me, "send msg to server", amsg)
+	rf.applyCh <- amsg
+	rf.mu.Unlock()
+	// fmt.Println("[Log repli]start:", rf.me, rf.log)
+	go rf.LogReplicate(index)
+	return index + 1, term, true
+}
 
-	return index, term, isLeader
+func (rf *Raft) LogReplicate(index int) {
+	rf.mu.Lock()
+	rf.commitCount[index] = 1
+	rf.mu.Unlock()
+	for i := range rf.peers {
+		if i != rf.me {
+			fmt.Println("[Log repli]send replic append rpc", rf.me, "to", i, rf.commitIndex)
+			go rf.sendAppnendEntriesUntilWin(i, false, index)
+		}
+	}
+	flag := false
+	checkCommitFunc := func() bool {
+		rf.mu.Lock()
+		defer rf.mu.Unlock()
+		return rf.commitCount[index] > len(rf.peers)/2
+	}
+	for rf.killed() == false {
+		if checkCommitFunc() == false {
+			flag = true
+			// fmt.Println("asdf")
+			break
+		}
+		time.Sleep(time.Duration(commitTimeLap * time.Millisecond))
+	}
+	if flag {
+		rf.mu.Lock()
+		rf.commitIndex = index + 1
+		// fmt.Println("index", index)
+		rf.mu.Unlock()
+		// apply commit
+	}
 }
 
 //
@@ -361,21 +462,21 @@ func (rf *Raft) ticker() {
 		// time.Sleep().
 		if rf.checkElection() {
 			// continue tick
+
 			time.Sleep(time.Duration(sleepLapTimeBeforeElection * int(time.Millisecond)))
 		} else {
 			// wait a random time to start elections
 			sleepTime := random(sleepLapTimeBeforeElection/2, sleepLapTimeBeforeElection)
-			fmt.Println("sleep time: ", sleepTime)
 			time.Sleep(time.Duration(sleepTime * int(time.Millisecond)))
 
 			if rf.checkElection() {
 				continue
 			}
 
-			fmt.Println("Start elect", time.Now())
+			fmt.Println("[election info] Start elect", time.Now())
 			if rf.electLeader() {
 				rf.mu.Lock()
-				lastLogIndex := len(rf.log)
+				lastLogIndex := Max(len(rf.log)-1, 0)
 				for i := range rf.peers {
 					if i >= len(rf.nextIndex) {
 						rf.nextIndex = append(rf.nextIndex, lastLogIndex)
@@ -396,54 +497,90 @@ func (rf *Raft) ticker() {
 			}
 		}
 	}
-	fmt.Println(rf.me, "be killed")
+	fmt.Println("ticker info", rf.me, "be killed")
 }
 
 func (rf *Raft) heartbeat() {
-	for rf.killed() == false {
+	checkLeader := func() bool {
+		rf.mu.Lock()
+		defer rf.mu.Unlock()
+		return rf.curState == Leader
+	}
+	for rf.killed() == false && checkLeader() {
 		for i := range rf.peers {
 			if i != rf.me {
-				go rf.sendAppnendEntriesUntilWin(i, nil, true)
+				go rf.sendAppnendEntriesUntilWin(i, true, 0)
 			}
 		}
 		time.Sleep(time.Duration(heartbeatTimeLap * time.Millisecond))
 	}
-	fmt.Println(rf.me, "heartbeat be killed")
+	fmt.Println("[heartbeat info]", rf.me, "heartbeat is over")
 }
 
-func (rf *Raft) sendAppnendEntriesUntilWin(server int, entries []Log, heartbeated bool) {
+func (rf *Raft) sendAppnendEntriesUntilWin(server int, heartbeated bool, index int) {
+	checkLeader := func() bool {
+		rf.mu.Lock()
+		defer rf.mu.Unlock()
+		return rf.curState == Leader
+	}
 	if heartbeated {
-		args := rf.generateRfAppendRPC(entries, heartbeated)
+		args := rf.generateRfAppendRPC(heartbeated, server, index)
+		// fmt.Println("[send Append]", args, heartbeated)
 		repl := AppendEntriesRepl{}
 		ok := rf.sendAppnendEntries(server, &args, &repl)
 		if ok {
-			// TO-DO: do something
+			rf.mu.Lock()
+			if repl.Term > rf.currentTerm {
+				rf.currentTerm = repl.Term
+				rf.curState = Follower
+			}
+			rf.mu.Unlock()
 		}
 	} else {
-		for rf.killed() == false {
-			args := rf.generateRfAppendRPC(entries, heartbeated)
+		for rf.killed() == false && checkLeader() {
+			args := rf.generateRfAppendRPC(heartbeated, server, index)
+			// fmt.Println("[send Append]", args, heartbeated)
 			repl := AppendEntriesRepl{}
 			ok := rf.sendAppnendEntries(server, &args, &repl)
-			if ok && repl.Success { // retry until success
-				break
+			if ok { // retry until success
+				rf.mu.Lock()
+				if repl.Term > rf.currentTerm {
+					rf.currentTerm = repl.Term
+					rf.curState = Follower
+				} else if repl.Success == false {
+					if rf.nextIndex[server] > 0 {
+						rf.nextIndex[server] -= 1
+					}
+				}
+				rf.mu.Unlock()
+				if repl.Success {
+					rf.mu.Lock()
+					rf.commitCount[server] += 1
+					rf.nextIndex[server] = index + 1
+					rf.mu.Unlock()
+					fmt.Println("[Send Append]", rf.me, "send to", server, "success")
+					break
+				}
 			}
 			time.Sleep(time.Duration(appendEntriesTetryTimeLap * time.Millisecond))
 		}
 	}
 }
 
-func (rf *Raft) generateRfAppendRPC(entries []Log, heartbeated bool) AppendEntriesArgs {
+func (rf *Raft) generateRfAppendRPC(heartbeated bool, server int, index int) AppendEntriesArgs {
 	args := AppendEntriesArgs{}
 	rf.mu.Lock()
 	args.Term = rf.currentTerm
 	args.LeaderId = rf.me
-	args.LeaderCommit = rf.commitIndex
+	args.LeaderCommit = index
 	if heartbeated {
-
+		args.Entries = nil
 	} else {
-
+		// fmt.Println("1111111111111111", rf.nextIndex, args.LeaderCommit, rf.log)
+		args.PrevLogIndex = rf.nextIndex[server]
+		args.PrevLogTerm = rf.log[args.PrevLogIndex].Term
+		args.Entries = rf.log[args.PrevLogIndex : index+1]
 	}
-	// TO-DO: set preLogIndex, peovLogTerm, entries[]
 	rf.mu.Unlock()
 	return args
 }
@@ -460,7 +597,6 @@ func (rf *Raft) electLeader() bool {
 	// start election
 	for i := range rf.peers {
 		if i != rf.me {
-			fmt.Println(rf.me, " Send vote message to", i)
 			go rf.electLeaderFromVoter(i)
 		}
 	}
@@ -492,12 +628,12 @@ func (rf *Raft) electLeaderFromVoter(voter int) {
 	repl := RequestVoteReply{}
 	ok := rf.sendRequestVote(voter, &args, &repl)
 	if ok && repl.VoteGranted {
-		fmt.Println(voter, "successfully vote for", rf.me)
+		fmt.Println("[election reply]", voter, "successfully vote for", rf.me)
 		rf.mu.Lock()
 		rf.voteSum += 1
 		rf.mu.Unlock()
 	} else {
-		fmt.Println(voter, "failed vote for", rf.me)
+		fmt.Println("[election reply]", voter, "failed vote for", rf.me)
 		rf.mu.Lock()
 		if repl.Term > rf.currentTerm {
 			rf.currentTerm = repl.Term
@@ -514,8 +650,11 @@ func random(min, max int) int {
 func (rf *Raft) checkElection() bool {
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
+	if rf.curState == Leader {
+		rf.lastAppendTime = time.Now()
+	}
 	timeLap := time.Now().Sub(rf.lastAppendTime)
-	fmt.Println(rf.me, "not election time out", int(timeLap.Milliseconds()))
+	// fmt.Println(rf.me, "not election time out", int(timeLap.Milliseconds()), "curstate:", rf.curState, "electionTimeout", electionTimeout)
 	return rf.curState == Leader || int(timeLap.Milliseconds()) < electionTimeout
 }
 
@@ -545,6 +684,8 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.lastAppendTime = time.Now()
 	rf.nextIndex = make([]int, len(peers))
 	rf.matchedIndex = make([]int, len(peers))
+	rf.commitCount = map[int]int{}
+	rf.applyCh = applyCh
 	// Your initialization code here (2A, 2B, 2C).
 
 	// initialize from state persisted before a crash
