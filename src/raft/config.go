@@ -455,7 +455,7 @@ func (cfg *config) nCommitted(index int) (int, interface{}) {
 			cmd = cmd1
 		}
 	}
-	fmt.Println(" how many servers think a log entry is committed", count)
+	// fmt.Println(" how many servers think a log entry is committed", count)
 	return count, cmd
 }
 
