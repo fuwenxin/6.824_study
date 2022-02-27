@@ -9,7 +9,7 @@ import (
 )
 
 // Debugging
-const Debug = false
+const Debug = true
 const Test = false
 
 var debugStart time.Time

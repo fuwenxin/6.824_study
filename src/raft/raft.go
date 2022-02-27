@@ -19,6 +19,7 @@ package raft
 
 import (
 	//	"bytes"
+
 	"fmt"
 	"math/rand"
 	"strconv"
@@ -27,6 +28,7 @@ import (
 	"time"
 
 	//	"6.824/labgob"
+
 	"6.824/labrpc"
 )
 
@@ -169,6 +171,8 @@ func (rf *Raft) readPersist(data []byte) {
 	if data == nil || len(data) < 1 { // bootstrap without any state?
 		return
 	}
+	// raw_data := bytes.NewBuffer(data)
+	// code_data := labgob.NewDecoder(raw_data)
 	// Your code here (2C).
 	// Example:
 	// r := bytes.NewBuffer(data)
@@ -253,6 +257,20 @@ type RequestVoteReply struct {
 	VoteGranted bool
 }
 
+type InstallSnapshotArgs struct {
+	Term              int
+	LearderId         int
+	LastIncludedIndex int
+	LastIncludedTerm  int
+	Offset            int
+	Data              []byte
+	Done              bool
+}
+
+type InstallSnapshotRepl struct {
+	Term int
+}
+
 func (rf *Raft) AppendEntries(args *AppendEntriesArgs, repl *AppendEntriesRepl) {
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
@@ -277,7 +295,6 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, repl *AppendEntriesRepl) 
 		} else if args.PrevLogIndex > 0 && args.PrevLogIndex == len(rf.log) && rf.log[len(rf.log)-1].Term != args.PrevLogTerm {
 			repl.Success = false
 		} else {
-
 			i := 0
 			j := args.PrevLogIndex
 			for ; j < len(rf.log) && i < len(args.Entries); j, i = j+1, i+1 {
@@ -632,9 +649,13 @@ func (rf *Raft) sendAppnendEntriesUntilWin(server int, heartbeated bool, index i
 				rf.mu.Unlock()
 				if repl.Success {
 					rf.mu.Lock()
-					rf.valided[server] = true
+					if !rf.valided[server] && len(args.Entries) > 0 {
+						DPrintf(dLog, "Set %v commit valid to true args:%v", rf.me, server, &args)
+						rf.valided[server] = true
+					}
 					rf.commitCount[index] += 1
 					rf.nextIndex[server] = index + 1
+					rf.matchedIndex[server] = index
 					rf.mu.Unlock()
 					// DPrintf()
 					break

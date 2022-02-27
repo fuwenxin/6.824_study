@@ -1,3 +1,0 @@
-Test (2B): leader backs up quickly over incorrect follower logs ...
-signal: interrupt
-FAIL	6.824/raft	1.449s

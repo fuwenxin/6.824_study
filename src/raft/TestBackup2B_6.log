@@ -1,6 +1,0 @@
-Test (2B): leader backs up quickly over incorrect follower logs ...
---- FAIL: TestBackup2B (17.87s)
-    config.go:550: one(6164000396329075677) failed to reach agreement
-FAIL
-exit status 1
-FAIL	6.824/raft	17.870s
