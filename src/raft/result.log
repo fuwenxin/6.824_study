@@ -1,0 +1,83 @@
+000001 INFO S0  start server
+000012 INFO S1  start server
+000019 INFO S2  start server
+Test (2C): basic persistence ...
+012040 VOTE S0 start vote at T1
+012044 VOTE S0 voted by S2 2/3
+012045 VOTE S0 voted by S1 3/3
+012252 VOTE S0 vote result:3/3
+012253 INFO S0 become leader 3/3 at T1
+012253 DROP S0 start heartbeat
+012254 TRCE S0 -> S1 Sending Broadcast(false) args:(Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1) at: T1
+012253 TRCE S0 -> S2 Sending Broadcast(false) args:(Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1) at: T1
+012258 RETN S1 <- S0 recv broadcast (Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1), log 0 rf.applyIndex:0
+012258 RETN S2 <- S0 recv broadcast (Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1), log 0 rf.applyIndex:0
+012682 INFO S0 start command 11
+012682 LOG1 S0 Save Log 11 in T1 Remain:0  index:0
+012682 LOG1 S0 -> S2 generate appendRPC(I0) Before send(Leader) Log: [{1 11}] at:T1 send:[0,1]
+012683 TRCE S0 -> S2 Sending AppendRPC log:1 at:T1
+012683 LOG1 S0 -> S1 generate appendRPC(I0) Before send(Leader) Log: [{1 11}] at:T1 send:[0,1]
+012683 TRCE S0 -> S1 Sending AppendRPC log:1 at:T1
+012684 LOG1 S2 Save Log {1 11} in T1 applyIndex:0 index:0
+012685 RETN S2 <- S0 recv Append (Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:1,Entries:[{1 11}],LeaderCommit:-1), log [{1 11}] reply:&{1 true}
+012685 LOG1 S1 Save Log {1 11} in T1 applyIndex:0 index:0
+012685 RETN S1 <- S0 recv Append (Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:1,Entries:[{1 11}],LeaderCommit:-1), log [{1 11}] reply:&{1 true}
+012685 LOG1 S0 Set 2 commit valid to true args:(Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:1,Entries:[{1 11}],LeaderCommit:-1)
+012685 LOG1 S0 Set 1 commit valid to true args:(Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:1,Entries:[{1 11}],LeaderCommit:-1)
+012762 TRCE S0 -> S2 Sending Broadcast(true) args:(Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1) at: T1
+012763 RETN S2 <- S0 recv broadcast (Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1), log 1 rf.applyIndex:0
+012763 TRCE S0 -> S1 Sending Broadcast(true) args:(Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1) at: T1
+012764 RETN S1 <- S0 recv broadcast (Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1), log 1 rf.applyIndex:0
+013267 CMIT S0 Commit {1 11}(0), applyIndex:1, rf.log:[{1 11}]
+013268 TRCE S0 -> S1 Sending Broadcast(true) args:(Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:0) at: T1
+013268 TRCE S0 -> S2 Sending Broadcast(true) args:(Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:0) at: T1
+013271 CMIT S1 Commit {1 11}(0), applyIndex:1, rf.log:[{1 11}]
+013271 RETN S1 <- S0 recv broadcast (Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:0), log 1 rf.applyIndex:1
+013271 CMIT S2 Commit {1 11}(0), applyIndex:1, rf.log:[{1 11}]
+013271 RETN S2 <- S0 recv broadcast (Term:1,LeaderId:0,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:0), log 1 rf.applyIndex:1
+013298 INFO S0  start server
+013299 INFO S1  start server
+013299 INFO S2  start server
+013769 DROP S0 (Leader) heartbeat is over at TLeader
+014044 DROP S1 (Follower) ticker is over at TFollower
+014064 DROP S2 (Follower) ticker is over at TFollower
+014258 DROP S0 (Leader) ticker is over at TLeader
+025335 VOTE S2 start vote at T1
+025335 VOTE S0 start vote at T1
+025337 VOTE S2 voted by S1 2/3
+025337 VOTE S0 not voted by S2 1/3
+025338 VOTE S2 not voted by S0 2/3
+025338 VOTE S0 not voted by S1 1/3
+025543 VOTE S2 vote result:2/3
+025543 INFO S2 become leader 2/3 at T1
+025543 DROP S2 start heartbeat
+025543 TRCE S2 -> S1 Sending Broadcast(false) args:(Term:1,LeaderId:2,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1) at: T1
+025544 TRCE S2 -> S0 Sending Broadcast(false) args:(Term:1,LeaderId:2,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1) at: T1
+025545 RETN S1 <- S2 recv broadcast (Term:1,LeaderId:2,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1), log 0 rf.applyIndex:0
+025545 RETN S0 <- S2 recv broadcast (Term:1,LeaderId:2,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1), log 0 rf.applyIndex:0
+025753 VOTE S0 vote result:1/3
+025753 INFO S0 vote failed 1/3 at T1
+025950 INFO S2 start command 12
+025950 LOG1 S2 Save Log 12 in T1 Remain:0  index:0
+025951 LOG1 S2 -> S1 generate appendRPC(I0) Before send(Leader) Log: [{1 12}] at:T1 send:[0,1]
+025951 TRCE S2 -> S1 Sending AppendRPC log:1 at:T1
+025952 LOG1 S1 Save Log {1 12} in T1 applyIndex:0 index:0
+025952 RETN S1 <- S2 recv Append (Term:1,LeaderId:2,PrevLogIndex:0,PrevLogTerm:1,Entries:[{1 12}],LeaderCommit:-1), log [{1 12}] reply:&{1 true}
+025953 LOG1 S2 Set 1 commit valid to true args:(Term:1,LeaderId:2,PrevLogIndex:0,PrevLogTerm:1,Entries:[{1 12}],LeaderCommit:-1)
+025953 LOG1 S2 -> S0 generate appendRPC(I0) Before send(Leader) Log: [{1 12}] at:T1 send:[0,1]
+025953 TRCE S2 -> S0 Sending AppendRPC log:1 at:T1
+025954 LOG1 S0 Save Log {1 12} in T1 applyIndex:0 index:0
+025954 RETN S0 <- S2 recv Append (Term:1,LeaderId:2,PrevLogIndex:0,PrevLogTerm:1,Entries:[{1 12}],LeaderCommit:-1), log [{1 12}] reply:&{1 true}
+025954 LOG1 S2 Set 0 commit valid to true args:(Term:1,LeaderId:2,PrevLogIndex:0,PrevLogTerm:1,Entries:[{1 12}],LeaderCommit:-1)
+026053 TRCE S2 -> S1 Sending Broadcast(true) args:(Term:1,LeaderId:2,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1) at: T1
+026055 RETN S1 <- S2 recv broadcast (Term:1,LeaderId:2,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1), log 1 rf.applyIndex:0
+026055 TRCE S2 -> S0 Sending Broadcast(true) args:(Term:1,LeaderId:2,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1) at: T1
+026056 RETN S0 <- S2 recv broadcast (Term:1,LeaderId:2,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:-1), log 1 rf.applyIndex:0
+026562 CMIT S2 Commit {1 12}(0), applyIndex:1, rf.log:[{1 12}]
+026563 TRCE S2 -> S1 Sending Broadcast(true) args:(Term:1,LeaderId:2,PrevLogIndex:0,PrevLogTerm:0,Entries:[],LeaderCommit:0) at: T1
+2: log map[1:11]; server map[1:11]
+2: log map[1:11]; server map[1:11]
+2: log map[1:11]; server map[1:11]
+apply error: commit index=1 server=2 12 != server=2 11
+exit status 1
+FAIL	6.824/raft	2.658s
